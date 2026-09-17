@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a0f">
+<title>Sypher Studio — Сайты на заказ</title>
+<meta name="description" content="Создаём современные сайты на заказ. Лендинги, визитки, магазины. Срок от 2 дней. Работаем по всему миру.">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   RESET
+   ═══════════════════════════════════════════════════════════ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --bg: #0a0a0f;
+  --bg-2: #12121a;
+  --card: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(99, 102, 241, 0.5);
+  --text: #ffffff;
+  --muted: #8b8b9a;
+  --accent: #6366f1;
+  --accent-2: #ec4899;
+  --accent-3: #06b6d4;
+  --green: #10b981;
+  --orange: #f59e0b;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BACKGROUND
+   ═══════════════════════════════════════════════════════════ */
+#particles {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.bg-glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+  animation: floatGlow 20s ease-in-out infinite;
+}
+.bg-glow-1 {
+  width: 500px; height: 500px;
+  background: var(--accent);
+  top: -200px; left: -200px;
+}
+.bg-glow-2 {
+  width: 400px; height: 400px;
+  background: var(--accent-2);
+  bottom: -150px; right: -150px;
+  animation-delay: -10s;
+}
+@keyframes floatGlow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, 50px) scale(1.1); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-logo-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+.nav-links a:hover { opacity: 1; }
+.nav-cta {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 0.6rem 1.2rem;
+  border-radius: 100px;
+  opacity: 1 !important;
+  font-weight: 600;
+  transition: all 0.3s !important;
+}
+.nav-cta:hover {
+  background: var(--accent-2);
+  transform: translateY(-2px);
+}
+@media (max-width: 640px) {
+  .nav { padding: 1rem; }
+  .nav-links a:not(.nav-cta) { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 1.5rem 4rem;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  color: var(--green);
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+.hero-badge-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.hero-title {
+  font-size: clamp(2.2rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s ease 0.4s both;
+}
+.hero-title .gradient {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-sub {
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  color: var(--muted);
+  max-width: 580px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  animation: fadeInUp 1s ease 0.6s both;
+}
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeInUp 1s ease 0.8s both;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 2rem;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
+}
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+.btn-tg {
+  background: #229ED9;
+  color: #fff;
+}
+.btn-tg:hover {
+  background: #1a7fad;
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(34, 158, 217, 0.4);
+}
+.btn .arrow {
+  transition: transform 0.3s;
+}
+.btn:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Hero stats */
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeInUp 1s ease 1s both;
+}
+.hero-stat {
+  text-align: center;
+}
+.hero-stat-num {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTIONS
+   ═══════════════════════════════════════════════════════════ */
+section {
+  position: relative;
+  z-index: 10;
+  padding: 6rem 1.5rem;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+.section-title {
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+.section-sub {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SERVICES
+   ═══════════════════════════════════════════════════════════ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.service-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: translateY(40px);
+}
+.service-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.service-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.1);
+}
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+  display: block;
+}
+.service-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+.service-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PRICING
+   ═══════════════════════════════════════════════════════════ */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+.pricing-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+}
+.pricing-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.pricing-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--border-hover);
+  box-shadow: 0 30px 80px rgba(99, 102, 241, 0.15);
+}
+.pricing-card.featured {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(236, 72, 153, 0.08));
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+}
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+}
+.pricing-name {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+.pricing-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+.pricing-price {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.pricing-currency {
+  font-size: 1rem;
+  color: var(--muted);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  display: block;
+}
+.pricing-features {
+  list-style: none;
+  margin-bottom: 2rem;
+  flex: 1;
+}
+.pricing-features li {
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  line-height: 1.5;
+}
+.pricing-features li::before {
+  content: '✓';
+  color: var(--green);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.pricing-features li.no {
+  opacity: 0.4;
+}
+.pricing-features li.no::before {
+  content: '×';
+  color: var(--muted);
+}
+.pricing-card .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PROCESS
+   ═══════════════════════════════════════════════════════════ */
+.process {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  counter-reset: step;
+}
+.process-step {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: translateY(40px);
+}
+.process-step.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.process-step:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-5px);
+}
+.process-step::before {
+  counter-increment: step;
+  content: '0' counter(step);
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--accent);
+  opacity: 0.2;
+  line-height: 1;
+}
+.process-step h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  margin-top: 0.5rem;
+}
+.process-step p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   REQUIREMENTS
+   ═══════════════════════════════════════════════════════════ */
+.requirements {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  margin-top: 2rem;
+}
+.requirements-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.requirements-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem;
+  list-style: none;
+}
+.requirements-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.requirements-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-top: 0.6rem;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FAQ
+   ═══════════════════════════════════════════════════════════ */
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.faq-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.faq-item:hover {
+  border-color: var(--border-hover);
+}
+.faq-question {
+  padding: 1.3rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1rem;
+  user-select: none;
+  gap: 1rem;
+}
+.faq-icon {
+  font-size: 1.5rem;
+  color: var(--accent);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.faq-item.open .faq-answer {
+  max-height: 500px;
+}
+.faq-answer-inner {
+  padding: 0 1.5rem 1.3rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CTA
+   ═══════════════════════════════════════════════════════════ */
+.cta {
+  text-align: center;
+  padding: 8rem 1.5rem;
+}
+.cta-title {
+  font-size: clamp(1.8rem, 7vw, 5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+.cta-title .gradient {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.cta-sub {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  color: var(--muted);
+  max-width: 550px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+.cta-contacts {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════ */
+footer {
+  padding: 3rem 1.5rem 2rem;
+  border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 10;
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.footer-logo {
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--text); }
+.footer-copy {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+@media (max-width: 640px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   REVEAL
+   ═══════════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  section { padding: 4rem 1.25rem; }
+  .hero { padding: 5rem 1.25rem 3rem; }
+  .hero-stats { gap: 1.5rem; }
+  .cta { padding: 5rem 1.25rem; }
+  .requirements { padding: 2rem 1.5rem; }
+  .pricing-card { padding: 2rem 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Фон -->
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+<canvas id="particles"></canvas>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">
+    <span class="nav-logo-dot"></span>
+    SYPHER
+  </div>
+  <div class="nav-links">
+    <a href="#services">Услуги</a>
+    <a href="#pricing">Цены</a>
+    <a href="#process">Процесс</a>
+    <a href="https://t.me/pip3_cypher" target="_blank" class="nav-cta">Telegram</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    Свободны для новых заказов
+  </div>
+  <h1 class="hero-title">
+    Делаем <span class="gradient">сайты</span><br>
+    на заказ
+  </h1>
+  <p class="hero-sub">
+    Создаём современные сайты для бизнеса — лендинги, визитки, интернет-магазины. Работаем быстро, качественно и с душой. От идеи до запуска — 2-5 дней.
+  </p>
+  <div class="hero-actions">
+    <a href="https://t.me/pip3_cypher" target="_blank" class="btn btn-tg">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.833.94z"/></svg>
+      Написать в Telegram
+    </a>
+    <a href="#pricing" class="btn btn-secondary">
+      Смотреть цены
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">2-5</div>
+      <div class="hero-stat-label">дней на сайт</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">100%</div>
+      <div class="hero-stat-label">адаптив</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">14</div>
+      <div class="hero-stat-label">дней поддержки</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label reveal">01 / Услуги</span>
+      <h2 class="section-title reveal">Что мы делаем</h2>
+      <p class="section-sub reveal">От простого лендинга до полноценного интернет-магазина</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🎯</span>
+        <h3>Лендинг</h3>
+        <p>Одностраничный сайт для продажи одного продукта или услуги. Идеально для стартапа, мастера, специалиста.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏢</span>
+        <h3>Сайт-визитка</h3>
+        <p>3-5 страниц о вашей компании: услуги, портфолио, контакты. Подходит для малого бизнеса.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🛒</span>
+        <h3>Интернет-магазин</h3>
+        <p>Каталог товаров, корзина, оформление заказов. Для тех, кто продаёт онлайн.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">⚡</span>
+        <h3>Редизайн</h3>
+        <p>Обновим ваш старый сайт — современный дизайн, скорость, адаптив под телефоны.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label reveal">02 / Цены</span>
+      <h2 class="section-title reveal">Сколько это стоит</h2>
+      <p class="section-sub reveal">Прозрачные цены. Никаких скрытых платежей.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- СТАРТ -->
+      <div class="pricing-card">
+        <div class="pricing-name">Старт</div>
+        <div class="pricing-desc">Для быстрого запуска</div>
+        <div class="pricing-price">50<span style="font-size: 1.5rem;">$</span></div>
+        <span class="pricing-currency">≈ 160 BYN</span>
+        <ul class="pricing-features">
+          <li>Лендинг (1 страница)</li>
+          <li>Адаптив под телефоны</li>
+          <li>Базовая анимация</li>
+          <li>Форма обратной связи</li>
+          <li>Срок: 2-3 дня</li>
+          <li class="no">Многостраничный сайт</li>
+          <li class="no">Интернет-магазин</li>
+        </ul>
+        <a href="https://t.me/pip3_cypher" target="_blank" class="btn btn-secondary">Заказать</a>
+      </div>
+
+      <!-- СТАНДАРТ -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Популярный</div>
+        <div class="pricing-name">Стандарт</div>
+        <div class="pricing-desc">Оптимально для бизнеса</div>
+        <div class="pricing-price">100<span style="font-size: 1.5rem;">$</span></div>
+        <span class="pricing-currency">≈ 320 BYN</span>
+        <ul class="pricing-features">
+          <li>Сайт 3-5 страниц</li>
+          <li>Адаптив + тёмная тема</li>
+          <li>Продвинутая анимация</li>
+          <li>Форма + карта + соцсети</li>
+          <li>SEO-базовая настройка</li>
+          <li>Срок: 3-5 дней</li>
+          <li class="no">Интернет-магазин</li>
+        </ul>
+        <a href="https://t.me/pip3_cypher" target="_blank" class="btn btn-primary">Заказать</a>
+      </div>
+
+      <!-- ПРЕМИУМ -->
+      <div class="pricing-card">
+        <div class="pricing-name">Премиум</div>
+        <div class="pricing-desc">Для больших проектов</div>
+        <div class="pricing-price">200<span style="font-size: 1.5rem;">$</span></div>
+        <span class="pricing-currency">≈ 640 BYN</span>
+        <ul class="pricing-features">
+          <li>Интернет-магазин / приложение</li>
+          <li>Каталог, корзина, оплата</li>
+          <li>Личный кабинет</li>
+          <li>Интеграция с CRM</li>
+          <li>SEO + аналитика</li>
+          <li>Срок: 7-14 дней</li>
+          <li>Приоритетная поддержка</li>
+        </ul>
+        <a href="https://t.me/pip3_cypher" target="_blank" class="btn btn-secondary">Заказать</a>
+      </div>
+    </div>
+
+    <!-- Что входит во ВСЕ тарифы -->
+    <div class="requirements" style="margin-top: 3rem;">
+      <h3 class="requirements-title">✅ Что входит во все тарифы</h3>
+      <ul class="requirements-list">
+        <li>Домен бесплатно (на нашем хостинге)</li>
+        <li>HTTPS-защита</li>
+        <li>Хостинг бесплатно навсегда</li>
+        <li>14 дней бесплатных правок</li>
+        <li>Адаптив под все устройства</li>
+        <li>Скорость загрузки менее 2 сек</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label reveal">03 / Процесс</span>
+      <h2 class="section-title reveal">Как мы работаем</h2>
+      <p class="section-sub reveal">5 простых шагов от заявки до готового сайта</p>
+    </div>
+
+    <div class="process">
+      <div class="process-step">
+        <h4>Заявка</h4>
+        <p>Пишете нам в Telegram. Обсуждаем задачу, сроки, цену.</p>
+      </div>
+      <div class="process-step">
+        <h4>Предоплата</h4>
+        <p>50% вперёд. Это гарантия, что мы не потратим время зря.</p>
+      </div>
+      <div class="process-step">
+        <h4>Работа</h4>
+        <p>Делаем сайт 2-5 дней. Показываем промежуточные версии.</p>
+      </div>
+      <div class="process-step">
+        <h4>Правки</h4>
+        <p>2 раунда бесплатных правок — пока не понравится.</p>
+      </div>
+      <div class="process-step">
+        <h4>Сдача</h4>
+        <p>Выкладываем сайт в интернет. Оплата остатка.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REQUIREMENTS -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label reveal">04 / Что нужно</span>
+      <h2 class="section-title reveal">Что требуется от вас</h2>
+      <p class="section-sub reveal">Чтобы мы сделали сайт быстро и качественно</p>
+    </div>
+
+    <div class="requirements">
+      <h3 class="requirements-title">📋 Обязательно:</h3>
+      <ul class="requirements-list">
+        <li>Описание того, чем занимается ваш бизнес</li>
+        <li>Список услуг или товаров</li>
+        <li>Контактные данные (телефон, email, адрес)</li>
+        <li>Тексты или хотя бы тезисы для сайта</li>
+        <li>Логотип (если нет — сделаем за 20$)</li>
+        <li>Фотографии (если нет — используем стоковые)</li>
+      </ul>
+    </div>
+
+    <div class="requirements" style="margin-top: 1.5rem;">
+      <h3 class="requirements-title">💡 Пожелания:</h3>
+      <ul class="requirements-list">
+        <li>Примеры сайтов, которые нравятся</li>
+        <li>Цветовая гамма или брендбук</li>
+        <li>Сроки — если есть дедлайн</li>
+        <li>Бюджет — чтобы подобрать тариф</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label reveal">05 / FAQ</span>
+      <h2 class="section-title reveal">Частые вопросы</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Сколько ждать сайт?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Зависит от тарифа: Старт — 2-3 дня, Стандарт — 3-5 дней, Премиум — 7-14 дней. Точный срок обсудим после того, как узнаем задачу.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Как оплатить?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Предоплата 50% — в USDT, на карту РФ/РБ или через Telegram Stars. Остаток — после сдачи сайта. Для клиентов из СНГ — карта, для остальных — USDT.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Что если мне не понравится?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            2 раунда бесплатных правок — меняем цвет, шрифт, расположение блоков. Если всё совсем плохо на этапе макета — возвращаем 50% предоплаты и расходимся.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Хостинг и домен — платить?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Хостинг — бесплатно навсегда (GitHub Pages). Домен — по желанию: либо бесплатный `sypher.github.io/ваш-проект`, либо свой за 10$ в год (оформляем на ваше имя).
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Смогу сам редактировать сайт?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Простые правки (текст, фото) — да, покажем как. Сложные изменения — пишите нам, поможем. Первые 14 дней — бесплатно.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Работаете с зарубежными клиентами?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Да, работаем со всем миром. Общаемся на русском и английском. Оплата в USDT — принимаем из любой страны.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2 class="cta-title">
+    Готовы <span class="gradient">начать?</span>
+  </h2>
+  <p class="cta-sub">
+    Напишите нам в Telegram — обсудим вашу задачу, скажем цену и срок. Консультация бесплатно.
+  </p>
+  <div class="cta-contacts">
+    <a href="https://t.me/pip3_cypher" target="_blank" class="btn btn-tg">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.833.94z"/></svg>
+      @pip3_cypher
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">SYPHER STUDIO</div>
+    <div class="footer-links">
+      <a href="https://t.me/pip3_cypher" target="_blank">Telegram</a>
+      <a href="#services">Услуги</a>
+      <a href="#pricing">Цены</a>
+    </div>
+    <div class="footer-copy">© 2026 Sypher Studio</div>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   PARTICLES
+   ═══════════════════════════════════════════════════════════ */
+(function() {
+  const canvas = document.getElementById('particles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  let particles = [];
+  let width = 0, height = 0;
+  let mouseX = -1000, mouseY = -1000;
+  let animationId = null;
+
+  const isMobile = window.matchMedia('(max-width: 768px)').matches || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const COUNT = isMobile ? 25 : 70;
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    if (particles.length > 0) init();
+  }
+
+  function init() {
+    particles = [];
+    for (let i = 0; i < COUNT; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: Math.random() * 1.5 + 0.5,
+        a: Math.random() * 0.4 + 0.2
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
+
+      if (!isMobile && mouseX > 0) {
+        const dx = mouseX - p.x;
+        const dy = mouseY - p.y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 150) {
+          p.x += dx * 0.005;
+          p.y += dy * 0.005;
+        }
+      }
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(99, 102, 241, ' + p.a + ')';
+      ctx.fill();
+    }
+
+    if (!isMobile) {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = 'rgba(99, 102, 241, ' + (0.1 * (1 - d / 120)) + ')';
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    animationId = requestAnimationFrame(draw);
+  }
+
+  document.addEventListener('mousemove', function(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+  document.addEventListener('mouseleave', function() {
+    mouseX = -1000;
+    mouseY = -1000;
+  });
+
+  resize();
+  init();
+  draw();
+
+  let resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 200);
+  });
+
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      if (animationId) { cancelAnimationFrame(animationId); animationId = null; }
+    } else {
+      if (!animationId) draw();
+    }
+  });
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   REVEAL
+   ═══════════════════════════════════════════════════════════ */
+(function() {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal, .service-card, .pricing-card, .process-step, .faq-item').forEach(function(el) {
+      el.classList.add('visible');
+    });
+    return;
+  }
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal, .service-card, .pricing-card, .process-step, .faq-item').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // Страховка
+  setTimeout(function() {
+    document.querySelectorAll('.reveal, .service-card, .pricing-card, .process-step, .faq-item').forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }, 3000);
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   FAQ ACCORDION
+   ═══════════════════════════════════════════════════════════ */
+document.querySelectorAll('.faq-item').forEach(function(item) {
+  item.querySelector('.faq-question').addEventListener('click', function() {
+    item.classList.toggle('open');
+  });
+});
+
+/* ═══════════════════════════════════════════════════════════
+   SMOOTH SCROLL
+   ═══════════════════════════════════════════════════════════ */
+document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    const href = link.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
