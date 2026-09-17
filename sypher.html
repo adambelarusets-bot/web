@@ -7,15 +7,7 @@
 <title>Sypher Studio — Сайты на заказ</title>
 <meta name="description" content="Создаём современные сайты на заказ. Лендинги, визитки, магазины. Срок от 2 дней. Работаем по всему миру.">
 <style>
-/* ═══════════════════════════════════════════════════════════
-   RESET
-   ═══════════════════════════════════════════════════════════ */
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 :root {
   --bg: #0a0a0f;
@@ -30,12 +22,11 @@
   --accent-3: #06b6d4;
   --green: #10b981;
   --orange: #f59e0b;
+  --red: #ef4444;
+  --yellow: #eab308;
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
   background: var(--bg);
@@ -46,51 +37,28 @@ body {
   line-height: 1.6;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   BACKGROUND
-   ═══════════════════════════════════════════════════════════ */
 #particles {
-  position: fixed;
-  top: 0; left: 0;
+  position: fixed; top: 0; left: 0;
   width: 100%; height: 100%;
-  z-index: 0;
-  pointer-events: none;
+  z-index: 0; pointer-events: none;
 }
 .bg-glow {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.25;
-  z-index: 0;
-  pointer-events: none;
+  position: fixed; border-radius: 50%;
+  filter: blur(120px); opacity: 0.25;
+  z-index: 0; pointer-events: none;
   animation: floatGlow 20s ease-in-out infinite;
 }
-.bg-glow-1 {
-  width: 500px; height: 500px;
-  background: var(--accent);
-  top: -200px; left: -200px;
-}
-.bg-glow-2 {
-  width: 400px; height: 400px;
-  background: var(--accent-2);
-  bottom: -150px; right: -150px;
-  animation-delay: -10s;
-}
+.bg-glow-1 { width: 500px; height: 500px; background: var(--accent); top: -200px; left: -200px; }
+.bg-glow-2 { width: 400px; height: 400px; background: var(--accent-2); bottom: -150px; right: -150px; animation-delay: -10s; }
 @keyframes floatGlow {
   0%, 100% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(50px, 50px) scale(1.1); }
 }
 
-/* ═══════════════════════════════════════════════════════════
-   NAV
-   ═══════════════════════════════════════════════════════════ */
 .nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
+  position: fixed; top: 0; left: 0; right: 0;
   padding: 1rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; justify-content: space-between; align-items: center;
   z-index: 100;
   background: rgba(10, 10, 15, 0.8);
   backdrop-filter: blur(20px);
@@ -98,118 +66,78 @@ body {
   border-bottom: 1px solid var(--border);
 }
 .nav-logo {
-  font-size: 1.1rem;
-  font-weight: 900;
-  letter-spacing: 0.15em;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  font-size: 1.1rem; font-weight: 900; letter-spacing: 0.15em;
+  display: flex; align-items: center; gap: 0.5rem;
 }
 .nav-logo-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--green);
-  border-radius: 50%;
+  width: 8px; height: 8px;
+  background: var(--green); border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(0.8); }
 }
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-}
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
 .nav-links a {
-  color: var(--text);
-  text-decoration: none;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.7;
+  color: var(--text); text-decoration: none;
+  font-size: 0.8rem; letter-spacing: 0.1em;
+  text-transform: uppercase; opacity: 0.7;
   transition: opacity 0.3s;
 }
 .nav-links a:hover { opacity: 1; }
 .nav-cta {
-  background: var(--accent);
-  color: #fff !important;
-  padding: 0.6rem 1.2rem;
-  border-radius: 100px;
-  opacity: 1 !important;
-  font-weight: 600;
+  background: var(--accent); color: #fff !important;
+  padding: 0.6rem 1.2rem; border-radius: 100px;
+  opacity: 1 !important; font-weight: 600;
   transition: all 0.3s !important;
 }
-.nav-cta:hover {
-  background: var(--accent-2);
-  transform: translateY(-2px);
-}
+.nav-cta:hover { background: var(--accent-2); transform: translateY(-2px); }
 @media (max-width: 640px) {
   .nav { padding: 1rem; }
   .nav-links a:not(.nav-cta) { display: none; }
 }
 
-/* ═══════════════════════════════════════════════════════════
-   HERO
-   ═══════════════════════════════════════════════════════════ */
 .hero {
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh; min-height: 100dvh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
   padding: 6rem 1.5rem 4rem;
-  position: relative;
-  z-index: 10;
-  text-align: center;
+  position: relative; z-index: 10; text-align: center;
 }
 .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+  display: inline-flex; align-items: center; gap: 0.5rem;
   padding: 0.4rem 1rem;
   background: rgba(16, 185, 129, 0.1);
   border: 1px solid rgba(16, 185, 129, 0.3);
   border-radius: 100px;
-  font-size: 0.75rem;
-  color: var(--green);
+  font-size: 0.75rem; color: var(--green);
   margin-bottom: 1.5rem;
   animation: fadeInUp 0.8s ease 0.2s both;
 }
 .hero-badge-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--green);
-  border-radius: 50%;
-  animation: pulse 1.5s ease-in-out infinite;
+  width: 6px; height: 6px; background: var(--green);
+  border-radius: 50%; animation: pulse 1.5s ease-in-out infinite;
 }
 .hero-title {
   font-size: clamp(2.2rem, 8vw, 6rem);
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.5rem;
+  font-weight: 900; line-height: 1;
+  letter-spacing: -0.03em; margin-bottom: 1.5rem;
   animation: fadeInUp 1s ease 0.4s both;
 }
 .hero-title .gradient {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text;
-  background-clip: text;
+  -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .hero-sub {
   font-size: clamp(0.95rem, 1.5vw, 1.15rem);
-  color: var(--muted);
-  max-width: 580px;
-  margin: 0 auto 2.5rem;
-  line-height: 1.7;
+  color: var(--muted); max-width: 600px;
+  margin: 0 auto 2.5rem; line-height: 1.7;
   animation: fadeInUp 1s ease 0.6s both;
 }
 .hero-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  display: flex; gap: 1rem; flex-wrap: wrap;
   justify-content: center;
   animation: fadeInUp 1s ease 0.8s both;
 }
@@ -218,191 +146,108 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Buttons */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 1rem 2rem;
-  border-radius: 100px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 1rem 2rem; border-radius: 100px;
+  font-weight: 700; font-size: 0.9rem;
+  letter-spacing: 0.05em; text-decoration: none;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
+  border: none; cursor: pointer; font-family: inherit;
 }
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #fff;
   box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
 }
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
-}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4); }
 .btn-secondary {
   background: rgba(255, 255, 255, 0.05);
-  color: var(--text);
-  border: 1px solid var(--border);
+  color: var(--text); border: 1px solid var(--border);
 }
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: var(--border-hover);
-  transform: translateY(-2px);
+  border-color: var(--border-hover); transform: translateY(-2px);
 }
-.btn-tg {
-  background: #229ED9;
-  color: #fff;
-}
-.btn-tg:hover {
-  background: #1a7fad;
-  transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(34, 158, 217, 0.4);
-}
-.btn .arrow {
-  transition: transform 0.3s;
-}
-.btn:hover .arrow {
-  transform: translateX(4px);
-}
+.btn-tg { background: #229ED9; color: #fff; }
+.btn-tg:hover { background: #1a7fad; transform: translateY(-3px); box-shadow: 0 20px 40px rgba(34, 158, 217, 0.4); }
+.btn .arrow { transition: transform 0.3s; }
+.btn:hover .arrow { transform: translateX(4px); }
 
-/* Hero stats */
 .hero-stats {
-  display: flex;
-  gap: 3rem;
-  margin-top: 4rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: flex; gap: 3rem; margin-top: 4rem;
+  flex-wrap: wrap; justify-content: center;
   animation: fadeInUp 1s ease 1s both;
 }
-.hero-stat {
-  text-align: center;
-}
+.hero-stat { text-align: center; }
 .hero-stat-num {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 900;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: 1;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; line-height: 1;
 }
 .hero-stat-label {
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--muted);
+  font-size: 0.75rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--muted);
   margin-top: 0.5rem;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   SECTIONS
-   ═══════════════════════════════════════════════════════════ */
-section {
-  position: relative;
-  z-index: 10;
-  padding: 6rem 1.5rem;
-}
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.section-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
+section { position: relative; z-index: 10; padding: 6rem 1.5rem; }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 4rem; }
 .section-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1rem;
-  display: inline-block;
+  font-size: 0.7rem; letter-spacing: 0.4em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 1rem; display: inline-block;
 }
 .section-title {
   font-size: clamp(1.8rem, 5vw, 3.5rem);
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  margin-bottom: 1rem;
+  font-weight: 900; line-height: 1.1;
+  letter-spacing: -0.03em; margin-bottom: 1rem;
 }
 .section-sub {
   font-size: clamp(0.95rem, 1.3vw, 1.1rem);
-  color: var(--muted);
-  max-width: 600px;
+  color: var(--muted); max-width: 600px;
   margin: 0 auto;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   SERVICES
-   ═══════════════════════════════════════════════════════════ */
+/* SERVICES */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 .service-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 2rem;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 2rem;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  opacity: 0;
-  transform: translateY(40px);
+  opacity: 0; transform: translateY(40px);
 }
-.service-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.service-card.visible { opacity: 1; transform: translateY(0); }
 .service-card:hover {
   border-color: var(--border-hover);
   transform: translateY(-5px);
   box-shadow: 0 20px 60px rgba(99, 102, 241, 0.1);
 }
-.service-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1.2rem;
-  display: block;
-}
-.service-card h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-}
-.service-card p {
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
+.service-icon { font-size: 2.5rem; margin-bottom: 1.2rem; display: block; }
+.service-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; }
+.service-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
 
-/* ═══════════════════════════════════════════════════════════
-   PRICING
-   ═══════════════════════════════════════════════════════════ */
+/* PRICING */
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  align-items: stretch;
+  gap: 1.5rem; align-items: stretch;
 }
 .pricing-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 2.5rem 2rem;
-  display: flex;
-  flex-direction: column;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 24px; padding: 2.5rem 2rem;
+  display: flex; flex-direction: column;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  opacity: 0;
-  transform: translateY(40px);
+  opacity: 0; transform: translateY(40px);
 }
-.pricing-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.pricing-card.visible { opacity: 1; transform: translateY(0); }
 .pricing-card:hover {
   transform: translateY(-8px);
   border-color: var(--border-hover);
@@ -414,81 +259,107 @@ section {
   box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
 }
 .pricing-badge {
-  position: absolute;
-  top: -12px;
-  left: 50%;
+  position: absolute; top: -12px; left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #fff;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  padding: 0.4rem 1rem;
-  border-radius: 100px;
+  color: #fff; font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 0.4rem 1rem; border-radius: 100px;
 }
-.pricing-name {
-  font-size: 1.3rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-}
-.pricing-desc {
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-bottom: 1.5rem;
-}
+.pricing-name { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem; }
+.pricing-desc { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
 .pricing-price {
-  font-size: 2.5rem;
-  font-weight: 900;
-  line-height: 1;
+  font-size: 2.5rem; font-weight: 900; line-height: 1;
   margin-bottom: 0.3rem;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text;
-  background-clip: text;
+  -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .pricing-currency {
-  font-size: 1rem;
-  color: var(--muted);
-  font-weight: 400;
-  margin-bottom: 2rem;
-  display: block;
+  font-size: 1rem; color: var(--muted); font-weight: 400;
+  margin-bottom: 2rem; display: block;
 }
-.pricing-features {
-  list-style: none;
-  margin-bottom: 2rem;
-  flex: 1;
-}
+.pricing-features { list-style: none; margin-bottom: 2rem; flex: 1; }
 .pricing-features li {
-  padding: 0.5rem 0;
+  padding: 0.5rem 0; font-size: 0.9rem;
+  color: var(--muted); display: flex;
+  align-items: flex-start; gap: 0.6rem;
+  line-height: 1.5;
+}
+.pricing-features li::before {
+  content: '✓'; color: var(--green);
+  font-weight: 700; flex-shrink: 0;
+}
+.pricing-features li.no { opacity: 0.4; }
+.pricing-features li.no::before { content: '×'; color: var(--muted); }
+.pricing-card .btn { width: 100%; justify-content: center; }
+
+/* LEVELS */
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.level-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 2rem;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  opacity: 0; transform: translateY(40px);
+}
+.level-card.visible { opacity: 1; transform: translateY(0); }
+.level-card:hover { transform: translateY(-5px); }
+.level-header {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.level-name { font-size: 1.2rem; font-weight: 800; }
+.level-badge {
+  font-size: 0.7rem; font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.level-easy { color: var(--green); background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); }
+.level-medium { color: var(--orange); background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); }
+.level-hard { color: var(--red); background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); }
+.level-no { color: var(--muted); background: rgba(139, 139, 154, 0.1); border: 1px solid rgba(139, 139, 154, 0.3); }
+
+.level-list { list-style: none; }
+.level-list li {
+  padding: 0.6rem 0;
   font-size: 0.9rem;
   color: var(--muted);
   display: flex;
   align-items: flex-start;
-  gap: 0.6rem;
+  gap: 0.7rem;
   line-height: 1.5;
 }
-.pricing-features li::before {
-  content: '✓';
-  color: var(--green);
-  font-weight: 700;
+.level-list li .mark {
   flex-shrink: 0;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
 }
-.pricing-features li.no {
-  opacity: 0.4;
-}
-.pricing-features li.no::before {
-  content: '×';
+.level-list li .mark.ok { color: var(--green); }
+.level-list li .mark.no { color: var(--red); }
+.level-list li .mark.warn { color: var(--orange); }
+.level-desc {
+  font-size: 0.85rem;
   color: var(--muted);
-}
-.pricing-card .btn {
-  width: 100%;
-  justify-content: center;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border-left: 2px solid var(--accent);
 }
 
-/* ═══════════════════════════════════════════════════════════
-   PROCESS
-   ═══════════════════════════════════════════════════════════ */
+/* PROCESS */
 .process {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -496,243 +367,127 @@ section {
   counter-reset: step;
 }
 .process-step {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2rem 1.5rem;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 2rem 1.5rem;
   position: relative;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  opacity: 0;
-  transform: translateY(40px);
+  opacity: 0; transform: translateY(40px);
 }
-.process-step.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.process-step:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-5px);
-}
+.process-step.visible { opacity: 1; transform: translateY(0); }
+.process-step:hover { border-color: var(--border-hover); transform: translateY(-5px); }
 .process-step::before {
   counter-increment: step;
   content: '0' counter(step);
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: var(--accent);
-  opacity: 0.2;
-  line-height: 1;
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  font-size: 2.5rem; font-weight: 900;
+  color: var(--accent); opacity: 0.2; line-height: 1;
 }
-.process-step h4 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 0.6rem;
-  margin-top: 0.5rem;
-}
-.process-step p {
-  font-size: 0.85rem;
-  color: var(--muted);
-  line-height: 1.6;
-}
+.process-step h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.6rem; margin-top: 0.5rem; }
+.process-step p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
 
-/* ═══════════════════════════════════════════════════════════
-   REQUIREMENTS
-   ═══════════════════════════════════════════════════════════ */
+/* REQUIREMENTS */
 .requirements {
-  background: var(--bg-2);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 3rem 2rem;
-  margin-top: 2rem;
+  background: var(--bg-2); border: 1px solid var(--border);
+  border-radius: 24px; padding: 3rem 2rem; margin-top: 2rem;
 }
 .requirements-title {
-  font-size: 1.3rem;
-  font-weight: 800;
+  font-size: 1.3rem; font-weight: 800;
   margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  display: flex; align-items: center; gap: 0.75rem;
 }
 .requirements-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.2rem;
-  list-style: none;
+  gap: 1.2rem; list-style: none;
 }
 .requirements-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  font-size: 0.95rem;
-  color: var(--muted);
-  line-height: 1.6;
+  display: flex; align-items: flex-start;
+  gap: 0.75rem; font-size: 0.95rem;
+  color: var(--muted); line-height: 1.6;
 }
 .requirements-list li::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-  margin-top: 0.6rem;
-  flex-shrink: 0;
+  content: ''; width: 6px; height: 6px;
+  background: var(--accent); border-radius: 50%;
+  margin-top: 0.6rem; flex-shrink: 0;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   FAQ
-   ═══════════════════════════════════════════════════════════ */
-.faq-list {
-  max-width: 800px;
-  margin: 0 auto;
-}
+/* FAQ */
+.faq-list { max-width: 800px; margin: 0 auto; }
 .faq-item {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  margin-bottom: 1rem;
-  overflow: hidden;
-  transition: all 0.3s;
-  opacity: 0;
-  transform: translateY(20px);
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; margin-bottom: 1rem;
+  overflow: hidden; transition: all 0.3s;
+  opacity: 0; transform: translateY(20px);
 }
-.faq-item.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.faq-item:hover {
-  border-color: var(--border-hover);
-}
+.faq-item.visible { opacity: 1; transform: translateY(0); }
+.faq-item:hover { border-color: var(--border-hover); }
 .faq-question {
-  padding: 1.3rem 1.5rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 600;
-  font-size: 1rem;
-  user-select: none;
-  gap: 1rem;
+  padding: 1.3rem 1.5rem; cursor: pointer;
+  display: flex; justify-content: space-between;
+  align-items: center; font-weight: 600;
+  font-size: 1rem; user-select: none; gap: 1rem;
 }
 .faq-icon {
-  font-size: 1.5rem;
-  color: var(--accent);
-  transition: transform 0.3s;
-  flex-shrink: 0;
+  font-size: 1.5rem; color: var(--accent);
+  transition: transform 0.3s; flex-shrink: 0;
 }
-.faq-item.open .faq-icon {
-  transform: rotate(45deg);
-}
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.faq-item.open .faq-answer {
-  max-height: 500px;
-}
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.faq-item.open .faq-answer { max-height: 500px; }
 .faq-answer-inner {
   padding: 0 1.5rem 1.3rem;
-  color: var(--muted);
-  font-size: 0.9rem;
+  color: var(--muted); font-size: 0.9rem;
   line-height: 1.7;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   CTA
-   ═══════════════════════════════════════════════════════════ */
-.cta {
-  text-align: center;
-  padding: 8rem 1.5rem;
-}
+/* CTA */
+.cta { text-align: center; padding: 8rem 1.5rem; }
 .cta-title {
   font-size: clamp(1.8rem, 7vw, 5rem);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.5rem;
+  font-weight: 900; line-height: 1.05;
+  letter-spacing: -0.03em; margin-bottom: 1.5rem;
 }
 .cta-title .gradient {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text;
-  background-clip: text;
+  -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .cta-sub {
   font-size: clamp(0.95rem, 1.3vw, 1.1rem);
-  color: var(--muted);
-  max-width: 550px;
-  margin: 0 auto 2.5rem;
-  line-height: 1.7;
+  color: var(--muted); max-width: 550px;
+  margin: 0 auto 2.5rem; line-height: 1.7;
 }
 .cta-contacts {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: flex; gap: 1rem;
+  justify-content: center; flex-wrap: wrap;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   FOOTER
-   ═══════════════════════════════════════════════════════════ */
+/* FOOTER */
 footer {
   padding: 3rem 1.5rem 2rem;
   border-top: 1px solid var(--border);
-  position: relative;
-  z-index: 10;
+  position: relative; z-index: 10;
 }
 .footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 1.5rem;
 }
-.footer-logo {
-  font-size: 1.2rem;
-  font-weight: 900;
-  letter-spacing: 0.15em;
-}
-.footer-links {
-  display: flex;
-  gap: 1.5rem;
-}
+.footer-logo { font-size: 1.2rem; font-weight: 900; letter-spacing: 0.15em; }
+.footer-links { display: flex; gap: 1.5rem; }
 .footer-links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: color 0.3s;
+  color: var(--muted); text-decoration: none;
+  font-size: 0.85rem; transition: color 0.3s;
 }
 .footer-links a:hover { color: var(--text); }
-.footer-copy {
-  color: var(--muted);
-  font-size: 0.8rem;
-}
+.footer-copy { color: var(--muted); font-size: 0.8rem; }
 @media (max-width: 640px) {
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
+  .footer-content { flex-direction: column; text-align: center; }
 }
 
-/* ═══════════════════════════════════════════════════════════
-   REVEAL
-   ═══════════════════════════════════════════════════════════ */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ═══════════════════════════════════════════════════════════
-   MOBILE
-   ═══════════════════════════════════════════════════════════ */
 @media (max-width: 640px) {
   section { padding: 4rem 1.25rem; }
   .hero { padding: 5rem 1.25rem 3rem; }
@@ -752,20 +507,16 @@ footer {
 </head>
 <body>
 
-<!-- Фон -->
 <div class="bg-glow bg-glow-1"></div>
 <div class="bg-glow bg-glow-2"></div>
 <canvas id="particles"></canvas>
 
-<!-- NAV -->
 <nav class="nav">
-  <div class="nav-logo">
-    <span class="nav-logo-dot"></span>
-    SYPHER
-  </div>
+  <div class="nav-logo"><span class="nav-logo-dot"></span>SYPHER</div>
   <div class="nav-links">
     <a href="#services">Услуги</a>
     <a href="#pricing">Цены</a>
+    <a href="#levels">Возможности</a>
     <a href="#process">Процесс</a>
     <a href="https://t.me/pip3_cypher" target="_blank" class="nav-cta">Telegram</a>
   </div>
@@ -782,7 +533,7 @@ footer {
     на заказ
   </h1>
   <p class="hero-sub">
-    Создаём современные сайты для бизнеса — лендинги, визитки, интернет-магазины. Работаем быстро, качественно и с душой. От идеи до запуска — 2-5 дней.
+    Создаём современные сайты для бизнеса — лендинги, визитки, интернет-магазины. Работаем быстро, качественно и с душой. От идеи до запуска — 2-14 дней.
   </p>
   <div class="hero-actions">
     <a href="https://t.me/pip3_cypher" target="_blank" class="btn btn-tg">
@@ -797,7 +548,7 @@ footer {
 
   <div class="hero-stats">
     <div class="hero-stat">
-      <div class="hero-stat-num">2-5</div>
+      <div class="hero-stat-num">2-14</div>
       <div class="hero-stat-label">дней на сайт</div>
     </div>
     <div class="hero-stat">
@@ -855,12 +606,11 @@ footer {
     </div>
 
     <div class="pricing-grid">
-      <!-- СТАРТ -->
       <div class="pricing-card">
         <div class="pricing-name">Старт</div>
         <div class="pricing-desc">Для быстрого запуска</div>
-        <div class="pricing-price">50<span style="font-size: 1.5rem;">$</span></div>
-        <span class="pricing-currency">≈ 160 BYN</span>
+        <div class="pricing-price">160<span style="font-size: 1.5rem;"> BYN</span></div>
+        <span class="pricing-currency">≈ 50$ для зарубежных клиентов</span>
         <ul class="pricing-features">
           <li>Лендинг (1 страница)</li>
           <li>Адаптив под телефоны</li>
@@ -873,13 +623,12 @@ footer {
         <a href="https://t.me/pip3_cypher" target="_blank" class="btn btn-secondary">Заказать</a>
       </div>
 
-      <!-- СТАНДАРТ -->
       <div class="pricing-card featured">
         <div class="pricing-badge">Популярный</div>
         <div class="pricing-name">Стандарт</div>
         <div class="pricing-desc">Оптимально для бизнеса</div>
-        <div class="pricing-price">100<span style="font-size: 1.5rem;">$</span></div>
-        <span class="pricing-currency">≈ 320 BYN</span>
+        <div class="pricing-price">320<span style="font-size: 1.5rem;"> BYN</span></div>
+        <span class="pricing-currency">≈ 100$ для зарубежных клиентов</span>
         <ul class="pricing-features">
           <li>Сайт 3-5 страниц</li>
           <li>Адаптив + тёмная тема</li>
@@ -892,12 +641,11 @@ footer {
         <a href="https://t.me/pip3_cypher" target="_blank" class="btn btn-primary">Заказать</a>
       </div>
 
-      <!-- ПРЕМИУМ -->
       <div class="pricing-card">
         <div class="pricing-name">Премиум</div>
         <div class="pricing-desc">Для больших проектов</div>
-        <div class="pricing-price">200<span style="font-size: 1.5rem;">$</span></div>
-        <span class="pricing-currency">≈ 640 BYN</span>
+        <div class="pricing-price">640<span style="font-size: 1.5rem;"> BYN</span></div>
+        <span class="pricing-currency">≈ 200$ для зарубежных клиентов</span>
         <ul class="pricing-features">
           <li>Интернет-магазин / приложение</li>
           <li>Каталог, корзина, оплата</li>
@@ -911,17 +659,109 @@ footer {
       </div>
     </div>
 
-    <!-- Что входит во ВСЕ тарифы -->
     <div class="requirements" style="margin-top: 3rem;">
       <h3 class="requirements-title">✅ Что входит во все тарифы</h3>
       <ul class="requirements-list">
-        <li>Домен бесплатно (на нашем хостинге)</li>
-        <li>HTTPS-защита</li>
         <li>Хостинг бесплатно навсегда</li>
+        <li>HTTPS-защита</li>
         <li>14 дней бесплатных правок</li>
         <li>Адаптив под все устройства</li>
         <li>Скорость загрузки менее 2 сек</li>
+        <li>Обучение: как обновлять сайт</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- LEVELS — Что можем, что нет -->
+<section id="levels">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label reveal">03 / Возможности</span>
+      <h2 class="section-title reveal">Что мы можем,<br>а что — нет</h2>
+      <p class="section-sub reveal">Честно: не всё возможно. Вот подробный разбор по уровням сложности.</p>
+    </div>
+
+    <div class="levels-grid">
+      <!-- УРОВЕНЬ 1: ЛЕГКО -->
+      <div class="level-card">
+        <div class="level-header">
+          <div class="level-name">Уровень 1 — Лендинги</div>
+          <div class="level-badge level-easy">Легко</div>
+        </div>
+        <div class="level-desc">
+          Одностраничные сайты. Срок: 2-3 дня. Цена: от 160 BYN.
+        </div>
+        <ul class="level-list">
+          <li><span class="mark ok">✓</span> Лендинг для услуги или товара</li>
+          <li><span class="mark ok">✓</span> Лендинг для мастера (маникюр, ремонт)</li>
+          <li><span class="mark ok">✓</span> Промо-страница для акции</li>
+          <li><span class="mark ok">✓</span> Свадебный сайт-приглашение</li>
+          <li><span class="mark ok">✓</span> Сайт-портфолио (1 страница)</li>
+          <li><span class="mark ok">✓</span> Форма обратной связи</li>
+          <li><span class="mark ok">✓</span> Карта, соцсети, галерея</li>
+        </ul>
+      </div>
+
+      <!-- УРОВЕНЬ 2: СРЕДНЕ -->
+      <div class="level-card">
+        <div class="level-header">
+          <div class="level-name">Уровень 2 — Многостраничные</div>
+          <div class="level-badge level-medium">Средне</div>
+        </div>
+        <div class="level-desc">
+          Сайты 3-5 страниц. Срок: 3-7 дней. Цена: от 320 BYN.
+        </div>
+        <ul class="level-list">
+          <li><span class="mark ok">✓</span> Сайт-визитка компании</li>
+          <li><span class="mark ok">✓</span> Сайт услуг (клиника, салон)</li>
+          <li><span class="mark ok">✓</span> Сайт-каталог (без оплаты)</li>
+          <li><span class="mark ok">✓</span> Блог с разделами</li>
+          <li><span class="mark ok">✓</span> Сайт с личным кабинетом (простой)</li>
+          <li><span class="mark ok">✓</span> Корпоративный сайт</li>
+          <li><span class="mark warn">~</span> Формы заявок с CRM</li>
+        </ul>
+      </div>
+
+      <!-- УРОВЕНЬ 3: СЛОЖНО -->
+      <div class="level-card">
+        <div class="level-header">
+          <div class="level-name">Уровень 3 — Магазины</div>
+          <div class="level-badge level-hard">Сложно</div>
+        </div>
+        <div class="level-desc">
+          Интернет-магазины, каталоги с оплатой. Срок: 7-14 дней. Цена: от 640 BYN.
+        </div>
+        <ul class="level-list">
+          <li><span class="mark ok">✓</span> Интернет-магазин (до 100 товаров)</li>
+          <li><span class="mark ok">✓</span> Корзина, оформление заказа</li>
+          <li><span class="mark ok">✓</span> Интеграция с оплатой (ERIP, карта)</li>
+          <li><span class="mark ok">✓</span> Личный кабинет покупателя</li>
+          <li><span class="mark warn">~</span> Админка для управления товарами</li>
+          <li><span class="mark warn">~</span> Интеграция с доставкой</li>
+          <li><span class="mark warn">~</span> Мультивалютность</li>
+        </ul>
+      </div>
+
+      <!-- УРОВЕНЬ 4: НЕ ДЕЛАЕМ -->
+      <div class="level-card">
+        <div class="level-header">
+          <div class="level-name">Уровень 4 — Сложные системы</div>
+          <div class="level-badge level-no">Не делаем</div>
+        </div>
+        <div class="level-desc">
+          Пока не берёмся — нужно больше опыта и времени.
+        </div>
+        <ul class="level-list">
+          <li><span class="mark no">×</span> Мобильные приложения (iOS/Android)</li>
+          <li><span class="mark no">×</span> Сложные CRM-системы</li>
+          <li><span class="mark no">×</span> Банковские и финансовые системы</li>
+          <li><span class="mark no">×</span> Игровые платформы</li>
+          <li><span class="mark no">×</span> Социальные сети и мессенджеры</li>
+          <li><span class="mark no">×</span> Сайты с миллионами пользователей</li>
+          <li><span class="mark no">×</span> Криптобиржи и финансовые сервисы</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -930,7 +770,7 @@ footer {
 <section id="process">
   <div class="container">
     <div class="section-header">
-      <span class="section-label reveal">03 / Процесс</span>
+      <span class="section-label reveal">04 / Процесс</span>
       <h2 class="section-title reveal">Как мы работаем</h2>
       <p class="section-sub reveal">5 простых шагов от заявки до готового сайта</p>
     </div>
@@ -946,7 +786,7 @@ footer {
       </div>
       <div class="process-step">
         <h4>Работа</h4>
-        <p>Делаем сайт 2-5 дней. Показываем промежуточные версии.</p>
+        <p>Делаем сайт 2-14 дней. Показываем промежуточные версии.</p>
       </div>
       <div class="process-step">
         <h4>Правки</h4>
@@ -964,7 +804,7 @@ footer {
 <section>
   <div class="container">
     <div class="section-header">
-      <span class="section-label reveal">04 / Что нужно</span>
+      <span class="section-label reveal">05 / Что нужно</span>
       <h2 class="section-title reveal">Что требуется от вас</h2>
       <p class="section-sub reveal">Чтобы мы сделали сайт быстро и качественно</p>
     </div>
@@ -976,7 +816,7 @@ footer {
         <li>Список услуг или товаров</li>
         <li>Контактные данные (телефон, email, адрес)</li>
         <li>Тексты или хотя бы тезисы для сайта</li>
-        <li>Логотип (если нет — сделаем за 20$)</li>
+        <li>Логотип (если нет — сделаем за 40 BYN)</li>
         <li>Фотографии (если нет — используем стоковые)</li>
       </ul>
     </div>
@@ -997,7 +837,7 @@ footer {
 <section>
   <div class="container">
     <div class="section-header">
-      <span class="section-label reveal">05 / FAQ</span>
+      <span class="section-label reveal">06 / FAQ</span>
       <h2 class="section-title reveal">Частые вопросы</h2>
     </div>
 
@@ -1021,7 +861,7 @@ footer {
         </div>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            Предоплата 50% — в USDT, на карту РФ/РБ или через Telegram Stars. Остаток — после сдачи сайта. Для клиентов из СНГ — карта, для остальных — USDT.
+            Для клиентов из Беларуси — оплата в BYN на карту. Предоплата 50% — до начала работы, остаток — после сдачи сайта. Для зарубежных клиентов способ оплаты обсуждается индивидуально.
           </div>
         </div>
       </div>
@@ -1045,7 +885,7 @@ footer {
         </div>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            Хостинг — бесплатно навсегда (GitHub Pages). Домен — по желанию: либо бесплатный `sypher.github.io/ваш-проект`, либо свой за 10$ в год (оформляем на ваше имя).
+            Хостинг — бесплатно навсегда. Домен — по желанию: либо бесплатный адрес на нашем поддомене, либо свой за 30 BYN в год (оформляем на ваше имя).
           </div>
         </div>
       </div>
@@ -1069,7 +909,7 @@ footer {
         </div>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            Да, работаем со всем миром. Общаемся на русском и английском. Оплата в USDT — принимаем из любой страны.
+            Да, работаем со всем миром. Общаемся на русском и английском. Способ оплаты для зарубежных клиентов обсуждается индивидуально.
           </div>
         </div>
       </div>
@@ -1107,9 +947,6 @@ footer {
 </footer>
 
 <script>
-/* ═══════════════════════════════════════════════════════════
-   PARTICLES
-   ═══════════════════════════════════════════════════════════ */
 (function() {
   const canvas = document.getElementById('particles');
   if (!canvas) return;
@@ -1220,12 +1057,9 @@ footer {
   });
 })();
 
-/* ═══════════════════════════════════════════════════════════
-   REVEAL
-   ═══════════════════════════════════════════════════════════ */
 (function() {
   if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('.reveal, .service-card, .pricing-card, .process-step, .faq-item').forEach(function(el) {
+    document.querySelectorAll('.reveal, .service-card, .pricing-card, .process-step, .faq-item, .level-card').forEach(function(el) {
       el.classList.add('visible');
     });
     return;
@@ -1239,30 +1073,23 @@ footer {
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-  document.querySelectorAll('.reveal, .service-card, .pricing-card, .process-step, .faq-item').forEach(function(el) {
+  document.querySelectorAll('.reveal, .service-card, .pricing-card, .process-step, .faq-item, .level-card').forEach(function(el) {
     observer.observe(el);
   });
 
-  // Страховка
   setTimeout(function() {
-    document.querySelectorAll('.reveal, .service-card, .pricing-card, .process-step, .faq-item').forEach(function(el) {
+    document.querySelectorAll('.reveal, .service-card, .pricing-card, .process-step, .faq-item, .level-card').forEach(function(el) {
       el.classList.add('visible');
     });
   }, 3000);
 })();
 
-/* ═══════════════════════════════════════════════════════════
-   FAQ ACCORDION
-   ═══════════════════════════════════════════════════════════ */
 document.querySelectorAll('.faq-item').forEach(function(item) {
   item.querySelector('.faq-question').addEventListener('click', function() {
     item.classList.toggle('open');
   });
 });
 
-/* ═══════════════════════════════════════════════════════════
-   SMOOTH SCROLL
-   ═══════════════════════════════════════════════════════════ */
 document.querySelectorAll('a[href^="#"]').forEach(function(link) {
   link.addEventListener('click', function(e) {
     const href = link.getAttribute('href');
